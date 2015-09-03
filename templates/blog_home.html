@@ -1,0 +1,70 @@
+{% extends 'layout.html' %}
+
+{% block page_title %}My Blog{% endblock %}
+
+{% block content %}	
+ <div id="masthead">  
+      <div class="container">
+        <div class="row">
+          <div class="col-md-7">
+            <h1>Blog
+              <p class="lead">by {{B_author}} </p>
+            </h1>
+          </div>
+          <div class="col-md-5">
+            <div class="well well-lg"> 
+              <div class="row">
+                <div class="col-sm-12">
+                  Ad Space			
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div><!-- /cont -->
+    </div>
+
+	<div class="container">
+    <div class="row">
+      
+      <div class="col-md-12"> 
+        
+        <div class="panel">
+          <div class="panel-body">
+              
+            <!--/stories-->
+            {% for article in articles %}
+    	      <div class="row">    
+              <br>
+              <div class="col-md-2 col-sm-3 text-center">
+              <h3><a href="/newtest/user/{{ article.author }}">{{ article.author }}</a> </h3>
+                <a class="story-img" href="/newtest/view/{{ article.id }}"><img src="//placehold.it/100" style="width:100px;height:100px" class="img-circle"></a>
+              </div>
+              <div class="col-md-10 col-sm-9">
+                <h3>{{ article.title }} </h3>
+                <div class="row">
+                  <div class="col-xs-9">
+                    <p>{{ article.summary }}</p>
+                    <p class="lead"><a class ="btn btn-default" href="/newtest/posts/view/{{ article.id }}">Read More</a></p>
+                    <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
+                    <ul class="list-inline"><li><a href="#">2 Days Ago</a></li><li><a href="#"><i class="glyphicon glyphicon-comment"></i> 4 Comments</a></li><li><a href="#"><i class="glyphicon glyphicon-share"></i> 34 Shares</a></li></ul>
+                    </div>
+                  <div class="col-xs-3"></div>
+                </div>
+                <br><br>
+              </div>
+            </div>
+            <hr>
+            {% else %}	
+			<p>There are currently no articles.</p>
+			{% endfor %}
+            <!--/stories-->
+                      
+          </div>
+        </div>
+                                                                                                 
+     	</div><!--/col-12-->
+    </div>
+    </div>
+	
+{% endblock %}

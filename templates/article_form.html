@@ -1,0 +1,31 @@
+
+<form  class="form-horizontal" action="{{ action_url }}" method="post">
+
+	<hr>
+	<div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Title: </label>
+        <div class="col-sm-10">
+		<input class="form-control" type="text" name="title" value="{{ article.title|default('My First post!') }}" id="title" />
+	    </div>
+    </div>  
+	
+	<div class="form-group">
+        <label for="summary" class="col-sm-2 control-label">Summary:  </label>
+        <div class="col-sm-10">
+		<textarea class="form-control" name="summary" id="summary" rows="5" cols="20">{{ article.summary|default('This will be on main page') }}</textarea>
+	    </div>
+    </div>  
+	
+	<div class="form-group">
+        <label for="author" class="col-sm-2 control-label">Content: </label>
+        <div class="col-sm-10">
+		<textarea class="form-control" name="content" id="content" rows="10" cols="20">{{ article.content|default('This is the main Idea of my post') }} </textarea>
+	    </div>
+    </div>  
+
+	<div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+		<button type="submit" class="btn btn-success"> {{ action_name }} Article </button>
+		</div>
+    </div>
+</form>
